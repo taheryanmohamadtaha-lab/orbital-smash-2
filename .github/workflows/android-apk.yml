@@ -1,0 +1,127 @@
+name: Build Android APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+env:
+  GODOT_VERSION: "4.3"
+  GODOT_RELEASE: "stable"
+
+jobs:
+  build-android:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 40
+    env:
+      HAS_RELEASE_KEY: ${{ secrets.ANDROID_KEYSTORE_BASE64 != '' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate level data (Python)
+        run: python3 tools/validate_levels.py
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Prepare Android SDK (preinstalled on the runner)
+        run: |
+          export ANDROID_HOME="${ANDROID_HOME:-/usr/local/lib/android/sdk}"
+          echo "ANDROID_HOME=$ANDROID_HOME" >> "$GITHUB_ENV"
+          SDKM="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          yes | "$SDKM" --licenses > /dev/null || true
+          "$SDKM" --install "platform-tools" "build-tools;34.0.0" "platforms;android-34"
+          ls "$ANDROID_HOME/build-tools" "$ANDROID_HOME/platforms"
+
+      - name: Install Godot ${{ env.GODOT_VERSION }} and export templates
+        run: |
+          BASE=https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-${GODOT_RELEASE}
+          BIN=Godot_v${GODOT_VERSION}-${GODOT_RELEASE}_linux.x86_64
+          TPZ=Godot_v${GODOT_VERSION}-${GODOT_RELEASE}_export_templates.tpz
+          wget -q $BASE/$BIN.zip $BASE/$TPZ $BASE/SHA512-SUMS.txt
+          grep -E " ($BIN.zip|$TPZ)\$" SHA512-SUMS.txt | sha512sum -c -
+          unzip -q $BIN.zip
+          sudo mv $BIN /usr/local/bin/godot
+          sudo chmod +x /usr/local/bin/godot
+          mkdir -p ~/.local/share/godot/export_templates/${GODOT_VERSION}.${GODOT_RELEASE}
+          unzip -q $TPZ -d tpl
+          mv tpl/templates/* ~/.local/share/godot/export_templates/${GODOT_VERSION}.${GODOT_RELEASE}/
+          godot --version
+
+      - name: Configure Godot for Android export
+        run: |
+          keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android \
+            -keystore "$HOME/debug.keystore" -storepass android \
+            -dname "CN=Android Debug,O=Android,C=US" -validity 9999 -deststoretype pkcs12
+          mkdir -p ~/.config/godot
+          for f in editor_settings-4.3.tres editor_settings-4.tres; do
+            cat > ~/.config/godot/$f <<EOS
+          [gd_resource type="EditorSettings" format=3]
+
+          [resource]
+          export/android/android_sdk_path = "$ANDROID_HOME"
+          export/android/java_sdk_path = "$JAVA_HOME"
+          export/android/debug_keystore = "$HOME/debug.keystore"
+          export/android/debug_keystore_user = "androiddebugkey"
+          export/android/debug_keystore_pass = "android"
+          EOS
+          done
+
+      - name: Import project
+        run: |
+          godot --headless --path . --import || true
+          godot --headless --path . --import || true
+
+      - name: Run checks
+        run: |
+          godot --headless --path . --script tests/validate_levels.gd
+
+      - name: Smoke test scenes (reports script errors, does not block the APK)
+        continue-on-error: true
+        run: |
+          for scene in res://scenes/main/main.tscn res://scenes/gameplay/game.tscn; do
+            echo "=== $scene ==="
+            godot --headless --path . "$scene" --quit-after 90 2>&1 | tee smoke.log
+            if grep -E "SCRIPT ERROR|Parse Error|Compile Error" smoke.log; then
+              echo "::warning::Script errors found in $scene"
+              exit 1
+            fi
+          done
+
+      - name: Export debug APK
+        env:
+          GODOT_ANDROID_KEYSTORE_DEBUG_PATH: ${{ github.workspace }}/../debug.keystore
+        run: |
+          mkdir -p build
+          export GODOT_ANDROID_KEYSTORE_DEBUG_PATH="$HOME/debug.keystore"
+          export GODOT_ANDROID_KEYSTORE_DEBUG_USER=androiddebugkey
+          export GODOT_ANDROID_KEYSTORE_DEBUG_PASSWORD=android
+          godot --headless --path . --export-debug "Android Debug" build/OrbitalSmash.apk
+          test -f build/OrbitalSmash.apk || { echo "::error::APK was not produced"; exit 1; }
+          ls -lh build/OrbitalSmash.apk
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: OrbitalSmash-Android-APK
+          path: build/OrbitalSmash.apk
+          if-no-files-found: error
+
+      - name: Export signed release APK (only when secrets exist)
+        if: env.HAS_RELEASE_KEY == 'true'
+        env:
+          GODOT_ANDROID_KEYSTORE_RELEASE_USER: ${{ secrets.ANDROID_KEY_ALIAS }}
+          GODOT_ANDROID_KEYSTORE_RELEASE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+        run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > "$RUNNER_TEMP/release.keystore"
+          export GODOT_ANDROID_KEYSTORE_RELEASE_PATH="$RUNNER_TEMP/release.keystore"
+          godot --headless --path . --export-release "Android Release" build/OrbitalSmash-release.apk
+          test -f build/OrbitalSmash-release.apk
+
+      - uses: actions/upload-artifact@v4
+        if: env.HAS_RELEASE_KEY == 'true'
+        with:
+          name: OrbitalSmash-Android-Release-APK
+          path: build/OrbitalSmash-release.apk
+          if-no-files-found: error
