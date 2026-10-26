@@ -1,0 +1,9 @@
+{
+ "worlds": [
+  {"id": 1, "name_fa": "جزیره رنگین‌کمان", "name_en": "Rainbow Island", "color": "#3d9bff"},
+  {"id": 2, "name_fa": "شهر نئونی", "name_en": "Neon City", "color": "#a23bff"},
+  {"id": 3, "name_fa": "معبد باستانی", "name_en": "Ancient Temple", "color": "#e8923c"},
+  {"id": 4, "name_fa": "سرزمین یخی", "name_en": "Ice Land", "color": "#5cc8ff"},
+  {"id": 5, "name_fa": "فضای کیهانی", "name_en": "Cosmic Space", "color": "#5a54a8"}
+ ]
+}

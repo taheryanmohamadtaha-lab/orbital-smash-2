@@ -1,0 +1,17 @@
+{
+ "colors": [
+  {"id": "default", "name_fa": "پیش‌فرض", "name_en": "Default", "price": 0,   "color": "#ffffff"},
+  {"id": "red",     "name_fa": "قرمز",    "name_en": "Red",     "price": 60,  "color": "#ff4d4d"},
+  {"id": "blue",    "name_fa": "آبی",     "name_en": "Blue",    "price": 60,  "color": "#4da6ff"},
+  {"id": "green",   "name_fa": "سبز",     "name_en": "Green",   "price": 80,  "color": "#4dff88"},
+  {"id": "pink",    "name_fa": "صورتی",   "name_en": "Pink",    "price": 100, "color": "#ff6ec7"},
+  {"id": "gold",    "name_fa": "طلایی",   "name_en": "Gold",    "price": 160, "color": "#ffd700"}
+ ],
+ "trails": [
+  {"id": "none",  "name_fa": "بدون رد", "name_en": "None",  "price": 0,   "color": "#ffffff"},
+  {"id": "spark", "name_fa": "جرقه",    "name_en": "Spark", "price": 100, "color": "#ffe14a"},
+  {"id": "fire",  "name_fa": "آتش",     "name_en": "Fire",  "price": 150, "color": "#ff7a1a"},
+  {"id": "ice",   "name_fa": "یخ",      "name_en": "Ice",   "price": 150, "color": "#7fe0ff"},
+  {"id": "neon",  "name_fa": "نئون",    "name_en": "Neon",  "price": 200, "color": "#ff2fd0"}
+ ]
+}

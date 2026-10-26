@@ -1,0 +1,224 @@
+{
+ "id": 17,
+ "world": 3,
+ "name_fa": "پل باستانی",
+ "name_en": "Ancient Bridge",
+ "difficulty": 5,
+ "balls": {
+  "standard": 3,
+  "heavy": 1,
+  "blast": 2
+ },
+ "win": {
+  "type": "destroy_targets"
+ },
+ "reward": {
+  "coins": 50
+ },
+ "stars": {
+  "three": 3,
+  "two": 5
+ },
+ "platform": {
+  "size": [
+   12,
+   8
+  ],
+  "center_z": -14
+ },
+ "camera": {
+  "position": [
+   0,
+   6,
+   8
+  ],
+  "look_at": [
+   0,
+   4,
+   -14
+  ],
+  "fov": 44
+ },
+ "blocks": [
+  {
+   "material": "stone",
+   "pos": [
+    -4.0,
+    0.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "stone",
+   "pos": [
+    -4.0,
+    1.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "stone",
+   "pos": [
+    -4.0,
+    2.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "stone",
+   "pos": [
+    -4.0,
+    3.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "stone",
+   "pos": [
+    4.0,
+    0.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "stone",
+   "pos": [
+    4.0,
+    1.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "stone",
+   "pos": [
+    4.0,
+    2.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "stone",
+   "pos": [
+    4.0,
+    3.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "stone",
+   "pos": [
+    0.0,
+    4.3,
+    -14.0
+   ],
+   "size": [
+    9.0,
+    0.6,
+    1.0
+   ]
+  },
+  {
+   "material": "crystal",
+   "pos": [
+    -3.2,
+    5.0,
+    -14.0
+   ],
+   "size": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "target": true
+  },
+  {
+   "material": "crystal",
+   "pos": [
+    0.0,
+    5.0,
+    -14.0
+   ],
+   "size": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "target": true
+  },
+  {
+   "material": "crystal",
+   "pos": [
+    3.2,
+    5.0,
+    -14.0
+   ],
+   "size": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "target": true
+  }
+ ],
+ "movers": [
+  {
+   "pos": [
+    0.0,
+    1.0,
+    -11.0
+   ],
+   "size": [
+    2.0,
+    2.0,
+    0.6
+   ],
+   "axis": [
+    1,
+    0,
+    0
+   ],
+   "amplitude": 3.0,
+   "speed": 1.0
+  }
+ ]
+}

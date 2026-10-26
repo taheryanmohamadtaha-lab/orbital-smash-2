@@ -1,0 +1,10 @@
+{
+ "materials": {
+  "wood":    {"density": 0.55, "friction": 0.75, "bounce": 0.08, "color": "#c98a4b", "threshold": 16.0, "breakable": true,  "shards": 4, "score": 10, "sound": "hit_wood"},
+  "glass":   {"density": 0.40, "friction": 0.30, "bounce": 0.05, "color": "#8fe6ff", "alpha": 0.55, "threshold": 5.0, "breakable": true, "shards": 6, "score": 15, "sound": "hit_glass"},
+  "stone":   {"density": 1.60, "friction": 0.90, "bounce": 0.02, "color": "#9a9aa8", "threshold": 42.0, "breakable": true, "shards": 4, "score": 20, "sound": "hit_stone"},
+  "metal":   {"density": 2.40, "friction": 0.50, "bounce": 0.15, "color": "#6c7a8c", "threshold": 9999.0, "breakable": false, "metallic": 0.9, "shards": 0, "score": 25, "sound": "hit_metal"},
+  "rubber":  {"density": 0.50, "friction": 1.00, "bounce": 0.85, "color": "#ff5c8a", "threshold": 9999.0, "breakable": false, "shards": 0, "score": 10, "sound": "hit_rubber"},
+  "crystal": {"density": 0.70, "friction": 0.40, "bounce": 0.10, "color": "#b46bff", "emission": 1.2, "threshold": 9.0, "breakable": true, "shards": 6, "score": 50, "sound": "hit_crystal"}
+ }
+}

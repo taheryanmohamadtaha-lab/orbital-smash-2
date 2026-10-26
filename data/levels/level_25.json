@@ -1,0 +1,323 @@
+{
+ "id": 25,
+ "world": 5,
+ "name_fa": "پنج ستاره",
+ "name_en": "Five Stars",
+ "difficulty": 6,
+ "balls": {
+  "standard": 4,
+  "blast": 2,
+  "precision": 1
+ },
+ "win": {
+  "type": "destroy_targets"
+ },
+ "reward": {
+  "coins": 56
+ },
+ "stars": {
+  "three": 3,
+  "two": 6
+ },
+ "platform": {
+  "size": [
+   11,
+   7
+  ],
+  "center_z": -14
+ },
+ "camera": {
+  "position": [
+   0,
+   8,
+   9
+  ],
+  "look_at": [
+   0,
+   6.5,
+   -14
+  ],
+  "fov": 48
+ },
+ "blocks": [
+  {
+   "material": "wood",
+   "pos": [
+    -4.0,
+    0.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "wood",
+   "pos": [
+    -4.0,
+    1.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "crystal",
+   "pos": [
+    -4.0,
+    2.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "target": true
+  },
+  {
+   "material": "glass",
+   "pos": [
+    -2.0,
+    0.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "stone",
+   "pos": [
+    -2.0,
+    1.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "glass",
+   "pos": [
+    -2.0,
+    2.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "stone",
+   "pos": [
+    -2.0,
+    3.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "crystal",
+   "pos": [
+    -2.0,
+    4.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "target": true
+  },
+  {
+   "material": "wood",
+   "pos": [
+    0.0,
+    0.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "wood",
+   "pos": [
+    0.0,
+    1.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "wood",
+   "pos": [
+    0.0,
+    2.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "crystal",
+   "pos": [
+    0.0,
+    3.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "target": true
+  },
+  {
+   "material": "stone",
+   "pos": [
+    2.0,
+    0.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "glass",
+   "pos": [
+    2.0,
+    1.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "stone",
+   "pos": [
+    2.0,
+    2.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "glass",
+   "pos": [
+    2.0,
+    3.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "stone",
+   "pos": [
+    2.0,
+    4.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "crystal",
+   "pos": [
+    2.0,
+    5.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "target": true
+  },
+  {
+   "material": "glass",
+   "pos": [
+    4.0,
+    0.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "glass",
+   "pos": [
+    4.0,
+    1.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "crystal",
+   "pos": [
+    4.0,
+    2.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "target": true
+  }
+ ],
+ "movers": []
+}

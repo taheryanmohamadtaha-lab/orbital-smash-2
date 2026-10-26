@@ -1,0 +1,247 @@
+{
+ "id": 18,
+ "world": 3,
+ "name_fa": "سه نگهبان",
+ "name_en": "Three Guardians",
+ "difficulty": 5,
+ "balls": {
+  "standard": 4,
+  "heavy": 1,
+  "blast": 1
+ },
+ "win": {
+  "type": "destroy_targets"
+ },
+ "reward": {
+  "coins": 50
+ },
+ "stars": {
+  "three": 3,
+  "two": 5
+ },
+ "platform": {
+  "size": [
+   12,
+   8
+  ],
+  "center_z": -14
+ },
+ "camera": {
+  "position": [
+   0,
+   8,
+   9
+  ],
+  "look_at": [
+   0,
+   6.5,
+   -14
+  ],
+  "fov": 48
+ },
+ "blocks": [
+  {
+   "material": "wood",
+   "pos": [
+    -3.5,
+    0.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "wood",
+   "pos": [
+    -3.5,
+    1.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "wood",
+   "pos": [
+    -3.5,
+    2.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "wood",
+   "pos": [
+    -3.5,
+    3.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "crystal",
+   "pos": [
+    -3.5,
+    4.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "target": true
+  },
+  {
+   "material": "stone",
+   "pos": [
+    0.0,
+    0.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "protected": true
+  },
+  {
+   "material": "stone",
+   "pos": [
+    0.0,
+    1.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "protected": true
+  },
+  {
+   "material": "stone",
+   "pos": [
+    0.0,
+    2.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "protected": true
+  },
+  {
+   "material": "stone",
+   "pos": [
+    0.0,
+    3.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "protected": true
+  },
+  {
+   "material": "stone",
+   "pos": [
+    0.0,
+    4.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "protected": true
+  },
+  {
+   "material": "wood",
+   "pos": [
+    3.5,
+    0.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "wood",
+   "pos": [
+    3.5,
+    1.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "wood",
+   "pos": [
+    3.5,
+    2.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "wood",
+   "pos": [
+    3.5,
+    3.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "material": "crystal",
+   "pos": [
+    3.5,
+    4.5,
+    -14.0
+   ],
+   "size": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "target": true
+  }
+ ],
+ "movers": []
+}
